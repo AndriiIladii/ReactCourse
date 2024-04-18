@@ -12,7 +12,7 @@ const App = () => {
         <option value="2">two</option>
       </select>
       <hr />
-      <img src={reactImage} alt="react" />
+      <img src={reactImage} />
     </>
   );
 };
