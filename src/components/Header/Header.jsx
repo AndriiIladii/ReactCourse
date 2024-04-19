@@ -8,7 +8,7 @@ const Header = ({ site }) => {
       <header>
         <h1>{site.site_name}</h1>
         <h2>{site.site_title}</h2>
-        <Nav />
+        <Nav nav={site.nav} />
       </header>
     </>
   );

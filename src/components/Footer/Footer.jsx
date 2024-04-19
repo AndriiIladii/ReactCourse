@@ -7,7 +7,7 @@ const Footer = ({ site }) => {
     <>
       <footer>
         <h3>{site.site_name}</h3>
-        <Nav />
+        <Nav nav={site.nav} />
       </footer>
     </>
   );
