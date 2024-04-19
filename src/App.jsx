@@ -1,18 +1,29 @@
 import React from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Main from "./components/Main/Main";
+import Sidebar from "./components/Main/Sidebar";
 import * as styles from "./App.module.css";
-import reactImage from "./public/images/react.png";
+
+const site = {
+  site_name: "react test",
+  site_title: "my first site with react",
+  nav: [
+    { link: "nav1", text: "my link" },
+    { link: "nav2", text: "my link 2" },
+    { link: "nav3", text: "my link 3" },
+  ],
+};
 
 const App = () => {
   return (
     <>
-      <h1>Hello MAN</h1>
-      <p className={styles.text}>text</p>
-      <select>
-        <option value="1">one</option>
-        <option value="2">two</option>
-      </select>
-      <hr />
-      <img src={reactImage} />
+      <div className={styles.container}>
+        <Header site={site} />
+        <Main nav={site.nav} />
+        <Sidebar />
+        <Footer site={site} />
+      </div>
     </>
   );
 };
