@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../Header/Nav";
-import * as styles from "./Footer.module.css";
 
 const Footer = ({ site }) => {
   return (

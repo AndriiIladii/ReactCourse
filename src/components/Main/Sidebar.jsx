@@ -1,7 +1,7 @@
 import React from "react";
-import * as styles from "./Sidebar.module.css";
+import Nav from "../Header/Nav";
 
-const Sidebar = () => {
+const Sidebar = ({ nav }) => {
   return (
     <>
       <ul>
@@ -9,6 +9,7 @@ const Sidebar = () => {
         <li>Страница 2</li>
         <li>Страница 3</li>
       </ul>
+      <Nav nav={nav} />
     </>
   );
 };

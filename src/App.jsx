@@ -20,8 +20,8 @@ const App = () => {
     <>
       <div className={styles.container}>
         <Header site={site} />
-        <Main nav={site.nav} />
-        <Sidebar />
+        <Main />
+        <Sidebar nav={site.nav} />
         <Footer site={site} />
       </div>
     </>
