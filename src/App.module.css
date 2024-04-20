@@ -4,22 +4,3 @@
   font-family: "Bellota Text", sans-serif;
   font-weight: 400;
 }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  order: 1;
-}
-
-.main {
-  order: 2;
-}
-
-.footer {
-  order: 3;
-}

@@ -1,29 +1,31 @@
 import React from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Main from "./components/Main/Main";
-import Sidebar from "./components/Main/Sidebar";
-import * as styles from "./App.module.css";
+import Header from "./Header";
+import Category from "./Category";
+import About from "./About";
+import Footer from "./Footer";
+import Home from "./Home";
+import CategoryDescription from "./CategoryDescription";
+import Error from "./Error";
 
-const site = {
-  site_name: "react test",
-  site_title: "my first site with react",
-  nav: [
-    { link: "nav1", text: "my link" },
-    { link: "nav2", text: "my link 2" },
-    { link: "nav3", text: "my link 3" },
-  ],
-};
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import * as styles from "./App.module.css";
 
 const App = () => {
   return (
     <>
-      <div className={styles.container}>
-        <Header site={site} />
-        <Main />
-        <Sidebar nav={site.nav} />
-        <Footer site={site} />
-      </div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Category" element={<Category />} />
+          <Route
+            path="/CategoryDescription/:url"
+            element={<CategoryDescription />}
+          />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
     </>
   );
 };
