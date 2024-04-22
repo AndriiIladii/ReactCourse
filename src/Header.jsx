@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,13 +6,13 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Главная</Link>
+            <a href="/">Главная</a>
           </li>
           <li>
-            <Link to="/About">О сайте</Link>
+            <a href="/About">О сайте</a>
           </li>
           <li>
-            <Link to="/Category">Категории</Link>
+            <a href="/Category">Категории</a>
           </li>
         </ul>
       </nav>
