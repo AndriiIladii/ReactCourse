@@ -4,39 +4,49 @@ import { useState } from "react";
 import * as styles from "./App.module.css";
 
 const App = () => {
-  let count4 = 0;
+  let ST1 = React.createRef();
+  let ST2 = React.createRef();
+  let ST5 = React.createRef();
+  let ST6 = React.createRef();
+  let ST7 = React.createRef();
+  let ST8 = React.createRef();
+  let ST9 = React.createRef();
+  let ST10 = React.createRef();
 
-  const [out5Value, setOut5Value] = useState(0);
-  const [output6Value, setOut6Value] = useState(0);
-  const [output8Value, setOut8Value] = useState("");
-  const [output9Value, setOut9Value] = useState(0);
-
-  let div6 = React.createRef();
-  let div7 = React.createRef();
-  let div8 = React.createRef();
-  let div9 = React.createRef();
-  let div10 = React.createRef();
+  const [st1, getSt1] = useState("");
+  const [st2, getSt2] = useState("");
+  const [st3, getSt3] = useState("");
+  const [st4, getSt4] = useState("");
+  const [st5, getSt5] = useState("");
+  const [st6, getSt6] = useState("");
+  const [st7, getSt7] = useState("");
+  const [st8, getSt8] = useState("");
+  const [st9, getSt9] = useState("");
+  const [st10, getSt10] = useState([]);
 
   function task1() {
-    console.log("task2");
+    getSt1(ST1.current.value);
   }
-  function task2(event) {
-    event.target.classList.add("active");
+  function task2() {
+    let count = st2;
+    count++;
+    getSt2(count);
   }
   function task3(event) {
-    console.log(event.target.value);
+    getSt3(event.target.value);
   }
   function task4() {
-    count4++;
-    console.log(count4);
+    let count = st4;
+    count++;
+    getSt4(count);
   }
-  function task5(event) {
+  function task5() {
     let val = 0;
-    if (event.target.checked) val = event.target.value;
-    setOut5Value(val);
+    if (ST5.current.checked) val = ST5.current.value;
+    getSt5(val);
   }
   function task6() {
-    setOut6Value(inputChange.current.value);
+    getSt6(ST6.current.value);
   }
 
   function getRandomInt(min, max) {
@@ -44,101 +54,102 @@ const App = () => {
   }
 
   function task7() {
-    div7.current.style.backgroundColor = `rgb(${getRandomInt(
-      0,
-      255
-    )}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`;
+    getSt7(
+      (ST7.current.style.backgroundColor = `rgb(${getRandomInt(
+        0,
+        255
+      )}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`)
+    );
   }
-  function task8(event) {
-    if (!isNaN(+event.key)) {
-      setOut8Value(output8Value + 1);
+  function task8() {
+    let key = ST8.current.value;
+    if (!isNaN(+key)) {
+      getSt8(st8 + "1");
     } else {
-      setOut8Value(output8Value + 0);
+      getSt8(st8 + "0");
     }
   }
   function task9() {
-    setOut9Value(div9.current.value);
+    getSt9(ST9.current.value);
   }
-  let ar10 = [5, 6, 7];
   function task10() {
-    let value = div10.current.value;
-    ar10.push(value);
-    console.log(ar10);
+    let value = ST10.current.value;
+    let values = [...st10, value];
+    getSt10(values);
   }
   return (
     <>
       <h1>События</h1>
       <section>
         <h2>Task 1</h2>
+        <input type="text" ref={ST1} />
         <button className="task-1" onClick={task1}>
           Push
         </button>
+        <div>{st1}</div>
       </section>
       <section>
         <h2>Task 2</h2>
-        <div className={styles.task2} onMouseEnter={task2}></div>
+        <div className={styles.task2} ref={ST2} onMouseEnter={task2}></div>
+        <div>{st2}</div>
       </section>
       <section>
         <h2>Task 3</h2>
         <input type="text" className="task-3" onInput={task3} />
+        <div>{st3}</div>
       </section>
       <section>
         <h2>Task 4</h2>
         <button className="task-4" onClick={task4}>
           Count
         </button>
+        <div>{st4}</div>
       </section>
       <section>
         <h2>Task 5</h2>
-        <input type="checkbox" defaultalue="55" onChange={task5} />
-        <div className="out5">{out5Value}</div>
+        <input type="checkbox" ref={ST5} defaultValue="55" onChange={task5} />
+        <div>{st5}</div>
       </section>
       <section>
         <h2>Task 6</h2>
-        <select className="task-6" ref={div6} onChange={task6}>
+        <select className="task-6" ref={ST6} onChange={task6}>
           <option value="7">seven</option>
           <option value="4">four</option>
           <option value="9">nine</option>
           <option value="10">ten</option>
         </select>
-        <div className="out6">{output6Value}</div>
+        <div>{st6}</div>
       </section>
       <section>
         <h2>Task 7</h2>
-        <div className={styles.block7} ref={div7}></div>
+        <div className={styles.block7} ref={ST7}></div>
         <button className="task-7" onClick={task7}>
           Color
         </button>
+        <div>{st7}</div>
       </section>
       <section>
         <h2>Task 8</h2>
-        <input
-          type="text"
-          className="task-8"
-          ref={div8}
-          onKeyUp={task8}
-        ></input>
-        <div className="out-8">{output8Value}</div>
+        <input type="text" className="task-8" ref={ST8} onKeyUp={task8}></input>
+        <div>{st8}</div>
       </section>
       <section>
         <h2>Task 9</h2>
         <input
           type="range"
           className="task-9"
-          ref={div9}
+          ref={ST9}
           onInput={task9}
         ></input>
-        <div className="out-9">{output9Value}</div>
+        <div>{st9}</div>
       </section>
       <section>
         <h2>Task 10</h2>
-        <input
-          type="number"
-          className="i-10"
-          ref={div10}
-          onClick={task10}
-        ></input>
-        <button className="task-10">Push</button>
+        <input type="number" className="i-10" ref={ST10}></input>
+        <button className="task-10" onClick={task10}>
+          Push
+        </button>
+        <div>{st10}</div>
       </section>
     </>
   );
