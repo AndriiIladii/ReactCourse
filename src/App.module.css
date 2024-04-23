@@ -1,3 +1,37 @@
-.text {
-  font-size: 40px;
+@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+* {
+  font-family: "Bellota Text", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 30px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #b9b5b5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#root {
+  margin: 40px auto;
+  max-width: 1000px;
+  background: #c0c0c0;
+  padding: 10px;
+}
+
+.test,
+.task2,
+.block7 {
+  width: 100px;
+  height: 100px;
+  background: orange;
+}
+
+.active {
+  border: 3px solid red;
 }
