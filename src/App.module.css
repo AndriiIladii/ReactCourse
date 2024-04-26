@@ -6,20 +6,33 @@
 }
 
 #root {
-  margin: 40px auto;
-  max-width: 1000px;
-  background: #c0c0c0;
+  padding-top: 30px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #f1f1f1;
+}
+
+.goodsField::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.goodsBlock {
+  width: 30%;
+  margin: 1%;
   padding: 10px;
+  border: 1px solid black;
+  float: left;
+  text-align: center;
 }
 
-.test,
-.task2,
-.block7 {
-  width: 100px;
-  height: 100px;
-  background: orange;
-}
-
-.active {
-  border: 3px solid red;
+.goodsBlock img {
+  max-width: 80%;
+  display: block;
+  margin: 20px auto;
 }
