@@ -40,7 +40,7 @@ class App extends Component {
       <div className={styles.container}>
         <h1>Cart</h1>
 
-        <div className={styles.goodsField} onClick={this.AddToCart}>
+        <div className={styles.goodsField} onClick={this.addToCart}>
           {goodsArr.map((item) => (
             <Goods
               title={item.title}
