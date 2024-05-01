@@ -15,24 +15,14 @@
   box-sizing: border-box;
   background: #f1f1f1;
 }
-
-.goodsField::after {
-  content: "";
-  display: block;
-  clear: both;
+.italic {
+  font-style: italic;
 }
 
-.goodsBlock {
-  width: 30%;
-  margin: 1%;
-  padding: 10px;
-  border: 1px solid black;
-  float: left;
-  text-align: center;
+.text-orange {
+  color: orange;
 }
 
-.goodsBlock img {
-  max-width: 80%;
-  display: block;
-  margin: 20px auto;
+.text-grey {
+  color: #c0c0c0;
 }

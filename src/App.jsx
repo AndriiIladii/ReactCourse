@@ -1,60 +1,77 @@
-import React, { Component } from "react";
-import Goods from "./Goods";
-import Cart from "./Cart";
-import goodsArr from "./goods.json";
+import React, { useRef, useState } from "react";
 
 import * as styles from "./App.module.css";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cart: {},
-      count: 0,
-    };
-  }
+const App = () => {
+  const h1 = React.createElement("h1", {}, "unit_08");
+  const h2 = React.createElement(
+    "h2",
+    {
+      className: "text-orange",
+    },
+    "header 2"
+  );
+  const p = React.createElement(
+    "p",
+    {
+      style: {
+        color: "red",
+      },
+    },
+    "this is p"
+  );
+  const input = React.createElement("input", {
+    type: "text",
+    value: "55",
+  });
 
-  addToCart = (event) => {
-    event.preventDefault();
-    if (!event.target.classList.contains("add-to-cart")) return false;
-    let cartTemp = this.state.cart;
-    cartTemp[event.target.dataset.key]
-      ? cartTemp[event.target.dataset.key]++
-      : (cartTemp[event.target.dataset.key] = 1);
-    // cartTemp++;
-    this.setState({ cart: cartTemp });
-    let count = this.state.count;
-    count++;
-    this.setState({ count: count });
-  };
+  const p1 = "hi";
+  const p2 = "world";
+  const div = React.createElement(
+    "div",
+    {
+      className: "text-grey",
+    },
+    [p1, p2]
+  );
 
-  render() {
-    let showCart;
-    if (this.state.count !== 0) {
-      showCart = <Cart cart={this.state.cart} goods={goodsArr} />;
-    } else {
-      showCart = "Empty";
+  const inputRef = useRef();
+  const [list, setList] = useState([]);
+
+  function getValue() {
+    if (inputRef.current.value !== "") {
+      setList([...list, inputRef.current.value]);
     }
-
-    return (
-      <div className={styles.container}>
-        <h1>Cart</h1>
-
-        <div className={styles.goodsField} onClick={this.addToCart}>
-          {goodsArr.map((item) => (
-            <Goods
-              title={item.title}
-              cost={item.cost}
-              image={item.image}
-              articul={item.articul}
-              key={item.articul}
-            />
-          ))}
-        </div>
-        {showCart}
-      </div>
-    );
   }
-}
+
+  const input2 = React.createElement("input", { ref: inputRef });
+  const button = React.createElement(
+    "button",
+    { onClick: getValue },
+    "click me"
+  );
+
+  return (
+    <>
+      <div className={styles.container}>
+        {h1}
+        {h2}
+        {p}
+        {input}
+        {div}
+
+        <div>
+          {input2}
+          {button}
+          <ul>
+            {list.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default App;
