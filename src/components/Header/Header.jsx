@@ -1,13 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
 
-const Header = ({ site }) => {
+const Header = ({ smth }) => {
   return (
     <>
       <header>
-        <h1>{site.site_name}</h1>
-        <h2>{site.site_title}</h2>
-        <Nav nav={site.nav} />
+        <h1>{smth.site_name}</h1>
+        <h2>{smth.site_title}</h2>
+        <Nav nav={smth.nav} />
       </header>
     </>
   );
