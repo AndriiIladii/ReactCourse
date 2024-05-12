@@ -4,78 +4,71 @@ import { useState } from "react";
 import * as styles from "./App.module.css";
 
 const App = () => {
+  const [st1, setSt1] = useState("");
   let ST1 = React.createRef();
-  let ST2 = React.createRef();
-  let ST5 = React.createRef();
-  let ST6 = React.createRef();
-  let ST7 = React.createRef();
-  let ST8 = React.createRef();
-  let ST9 = React.createRef();
-  let ST10 = React.createRef();
+  const [st2, setSt2] = useState("");
 
-  const [st1, getSt1] = useState("");
-  const [st2, getSt2] = useState("");
-  const [st3, getSt3] = useState("");
-  const [st4, getSt4] = useState("");
-  const [st5, getSt5] = useState("");
-  const [st6, getSt6] = useState("");
-  const [st7, getSt7] = useState("");
-  const [st8, getSt8] = useState("");
-  const [st9, getSt9] = useState("");
-  const [st10, getSt10] = useState([]);
+  const [st3, setSt3] = useState("");
+  const [st4, setSt4] = useState("");
+  const [st5, setSt5] = useState("");
+  const [st6, setSt6] = useState("");
+  const [st7, setSt7] = useState("");
+  let ST7 = React.createRef();
+  const [st8, setSt8] = useState("");
+  const [st9, setSt9] = useState("");
+
+  let ST10 = React.createRef();
+  const [st10, setSt10] = useState([]);
 
   function task1() {
-    getSt1(ST1.current.value);
+    setSt1(ST1.current.value);
   }
+
   function task2() {
     let count = st2;
     count++;
-    getSt2(count);
+    setSt2(count);
   }
   function task3(event) {
-    getSt3(event.target.value);
+    setSt3(event.target.value);
   }
   function task4() {
     let count = st4;
     count++;
-    getSt4(count);
+    setSt4(count);
   }
-  function task5() {
-    let val = 0;
-    if (ST5.current.checked) val = ST5.current.value;
-    getSt5(val);
+  function task5(event) {
+    event.target.checked ? setSt5(event.target.value) : 0;
   }
-  function task6() {
-    getSt6(ST6.current.value);
+  function task6(event) {
+    setSt6(event.target.value);
   }
 
   function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.random() * (max - min) + min;
   }
 
   function task7() {
-    getSt7(
+    setSt7(
       (ST7.current.style.backgroundColor = `rgb(${getRandomInt(
         0,
         255
       )}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`)
     );
   }
-  function task8() {
-    let key = ST8.current.value;
-    if (!isNaN(+key)) {
-      getSt8(st8 + "1");
+  function task8(event) {
+    if (!isNaN(+event.target.value)) {
+      setSt8(st8 + "1");
     } else {
-      getSt8(st8 + "0");
+      setSt8(st8 + "0");
     }
   }
-  function task9() {
-    getSt9(ST9.current.value);
+  function task9(event) {
+    setSt9(event.target.value);
   }
   function task10() {
-    let value = ST10.current.value;
-    let values = [...st10, value];
-    getSt10(values);
+    let val = [...st10, ST10.current.value];
+    setSt10(val);
   }
   return (
     <>
@@ -90,7 +83,7 @@ const App = () => {
       </section>
       <section>
         <h2>Task 2</h2>
-        <div className={styles.task2} ref={ST2} onMouseEnter={task2}></div>
+        <div className={styles.task2} onMouseEnter={task2}></div>
         <div>{st2}</div>
       </section>
       <section>
@@ -107,12 +100,12 @@ const App = () => {
       </section>
       <section>
         <h2>Task 5</h2>
-        <input type="checkbox" ref={ST5} defaultValue="55" onChange={task5} />
+        <input type="checkbox" defaultValue="55" onChange={task5} />
         <div>{st5}</div>
       </section>
       <section>
         <h2>Task 6</h2>
-        <select className="task-6" ref={ST6} onChange={task6}>
+        <select className="task-6" onChange={task6}>
           <option value="7">seven</option>
           <option value="4">four</option>
           <option value="9">nine</option>
@@ -130,17 +123,12 @@ const App = () => {
       </section>
       <section>
         <h2>Task 8</h2>
-        <input type="text" className="task-8" ref={ST8} onKeyUp={task8}></input>
+        <input type="text" className="task-8" onKeyUp={task8}></input>
         <div>{st8}</div>
       </section>
       <section>
         <h2>Task 9</h2>
-        <input
-          type="range"
-          className="task-9"
-          ref={ST9}
-          onInput={task9}
-        ></input>
+        <input type="range" className="task-9" onChange={task9}></input>
         <div>{st9}</div>
       </section>
       <section>
