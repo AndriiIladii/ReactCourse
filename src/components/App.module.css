@@ -1,9 +1,9 @@
-.container {
-  max-width: 1200px;
-  margin: 50px auto;
-  background-color: #f1f1f1;
+.goodsField {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.image {
-  width: 80px;
+.addToCart {
 }
